@@ -1,0 +1,68 @@
+<form [formGroup]="Empregister" (ngSubmit)="HandleSubmit()">
+<mat-stepper [linear]="isLinear" #stepper>
+    
+    <mat-step [stepControl]="Basicform">
+      <div formGroupName="basic">
+        <ng-template matStepLabel>Fill Basic Details</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First name" formControlName="firstname" >
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last name" formControlName="lastname" >
+          </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+    </div>
+    </mat-step>
+    <mat-step [stepControl]="contactform"  label="Fill out contact info">
+      <div formGroupName="contact">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Email"
+                 required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" placeholder="Phone"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Fax</mat-label>
+            <input matInput formControlName="fax" placeholder="Fax"
+                   required>
+          </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Back</button> | 
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+    </div>
+    </mat-step>
+    <mat-step [stepControl]="addressform" label="Fill out address">
+        <div formGroupName="address">
+          <mat-form-field appearance="fill">
+            <mat-label>Street</mat-label>
+            <input matInput formControlName="street" placeholder="street"
+                   required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city" placeholder="City"
+                     required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>PIN</mat-label>
+              <input matInput formControlName="pin" placeholder="Pin"
+                     required>
+            </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button> | 
+            <button mat-raised-button color="accent" >Submit</button>
+          </div>
+      </div>
+      </mat-step>
+
+  </mat-stepper>
+</form>

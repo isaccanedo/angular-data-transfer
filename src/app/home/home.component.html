@@ -1,0 +1,68 @@
+
+<div class="row">
+    <div class="col-lg-5 offset-lg-2">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>email</th>
+          </tr>
+        </thead>
+        <tbody>
+    <tr *ngFor="let item of customerdata">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+    </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-5 offset-lg-2">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>email</th>
+          </tr>
+        </thead>
+        <tbody>
+    <tr *ngFor="let item of empdata">
+      <td>{{item.code}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+    </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-5 offset-lg-2">
+      <h2>{{title}}</h2>
+      <div class="form-group">
+        <label>Name</label>
+        <input #name class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Mark</label>
+        <input #mark class="form-control">
+      </div>
+      <div class="form-group">
+       <br>
+       <a style="color: #fff" (click)="TransferData(name.value,mark.value)" class="btn btn-primary">Submit</a>
+       <br>
+       <span>{{response}}</span>
+      </div>
+  
+    </div>
+    <div class="col-lg-5">
+      <app-child [namedata]="inputname" [markdata]="inputmark" [objdata]="inputobj" (dataupdateevent)="updatetitle($event)"></app-child>
+    </div>
+  
+  </div>
+  
